@@ -1,0 +1,11 @@
+{% extends "_base.html" %}
+
+{% block main %}
+
+  <form method='post'>
+    <label for='phone_number'>Phone number</label>
+    <input type='text' name='phone_number' id='phone_number' value="{{ phone_number or '' }}"/>
+    <button type='submit'>Send</button>
+  </form>
+
+{% endblock %}

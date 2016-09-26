@@ -1,0 +1,13 @@
+{% extends "_base.html" %}
+
+{% block main %}
+
+  <p>
+    {{ result }}
+  </p>
+
+  <p>
+    <a href="{{ url_for('index', phone_number=phone_number) }}">Back</a>
+  </p>
+
+{% endblock %}
