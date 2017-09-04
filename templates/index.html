@@ -3,9 +3,11 @@
 {% block main %}
 
   <form method='post'>
-    <label for='phone_number'>Phone number</label>
-    <input type='text' name='phone_number' id='phone_number' value="{{ phone_number or '' }}"/>
-    <button type='submit'>Send</button>
+    {% for label, field_name in form_fields %}
+      <label for='{{ field_name }}'>{{ label }}</label>
+      <input type='text' name='{{ field_name }}' id='{{ field_name }}' value="">
+    {% endfor %}
+    <button type='submit'>Send letter</button>
   </form>
 
 {% endblock %}

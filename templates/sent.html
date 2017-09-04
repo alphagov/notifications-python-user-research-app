@@ -3,7 +3,9 @@
 {% block main %}
 
   <p>
-    {{ result }}
+    {% for line in result %}
+      {{ line }}<br>
+    {% endfor %}
   </p>
 
   <p>
