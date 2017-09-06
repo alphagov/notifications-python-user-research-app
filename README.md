@@ -13,7 +13,7 @@ pip install virtualenv
 
 ## Install the app
 ```shell
-git clone git@github.com:quis/user-research-admin-app.git
+git clone git@github.com:alphagov/notifications-python-user-research-app.git
 cd user-research-admin-app/
 virtualenv .venv
 source .venv/bin/activate
