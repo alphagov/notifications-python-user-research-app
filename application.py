@@ -3,46 +3,32 @@ from flask import Flask, request, redirect, url_for, render_template
 app = Flask(__name__)
 
 
-form_fields = [
-    ('Name', 'name'),
-    ('Street address', 'street_address'),
-    ('Town', 'town'),
-    ('County', 'county'),
-    ('Postcode', 'postcode'),
-]
-
-form_field_names = [field_name for label, field_name in form_fields]
-
 @app.route('/')
 def index():
 
+    phone_number = request.args.get('phone_number')
+
     return render_template(
         'index.html',
-        form_fields=form_fields
+        phone_number=phone_number
     )
 
 
 @app.route('/', methods=['POST'])
 def send():
 
-    result = {
-        field_name: request.form.get(field_name)
-        for field_name in form_field_names
-    }
+    phone_number = request.form.get('phone_number')
 
     return redirect(url_for(
         '.sent',
-        **result
+        phone_number=phone_number
     ))
 
 
-@app.route('/sent')
-def sent():
+@app.route('/sent/<phone_number>')
+def sent(phone_number=''):
 
-    result = [
-        '{}: {}'.format(field_name, request.args.get(field_name, ''))
-        for field_name in form_field_names
-    ]
+    result = 'Phone number is {}'.format(phone_number)
 
     return render_template(
         'sent.html',
