@@ -3,8 +3,14 @@
 {% block main %}
 
   <form method='post'>
-    <label for='phone_number'>Phone number</label>
-    <input type='text' name='phone_number' id='phone_number' value="{{ phone_number or '' }}"/>
+    <label for='email_address'>Email address</label>
+    <input type='text' name='email_address' id='email_address' value="{{ email_address or '' }}"/>
+    <input type='radio' name='document_key' id='doc1' value="file1"/>
+    <label for='doc1'>Document 1</label>
+    <input type='radio' name='document_key' id='doc2' value="file2"/>
+    <label for='doc2'>Document 2</label>
+    <input type='radio' name='document_key' id='doc3' value="file3"/>
+    <label for='doc3'>Document 3</label>
     <button type='submit'>Send</button>
   </form>
 
