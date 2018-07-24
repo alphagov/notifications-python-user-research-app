@@ -3,77 +3,18 @@
   <head>
     <meta charset="utf-8">
     <title>localhost</title>
-    <style>
-      body {
-        font-family: sans-serif;
-        font-size: 24px;
-        margin: 0 10vh;
-        background: repeating-linear-gradient(
-          0deg,
-          #fff,
-          #fff 11px,
-          #999 11px,
-          #999 12px
-        );
-        background: #fff;
-      }
-      h1 {
-        font-size: 24px;
-        color: #df3f4e;
-        padding: 0 0 6px 0;
-        margin: 10px 0 96px 0;
-        border-bottom: 3px solid #df3f4e;
-      }
-      p {
-        margin-bottom: 90px;
-      }
-      label {
-        display: block;
-        padding: 0 0 6px 0;
-      }
-      input, button {
-        font-size: 24px;
-        display: block;
-        border: 3px solid #111;
-        margin: 0 0 24px 0;
-        padding: 0.3em;
-        box-shadow: 0 0 1em 0.1em #fff;
-        transition: box-shadow 0.2s ease-in-out;
-      }
-      input {
-        width: 11em;
-      }
-      input:focus {
-        outline: none;
-        box-shadow: 0 0 1em 0.1em #39d;
-      }
-      button {
-        background: #3d9;
-        padding: 0.3em 0.78em;
-        box-shadow: inset 0 1em 0 0 rgba(255, 255, 255, 0.2), 0 0 1em 0.1em #fff;
-      }
-      button:active, button:focus {
-        outline: none;
-      }
-      button:focus {
-        box-shadow: inset 0 1em 0 0 rgba(255, 255, 255, 0), 0 0 1em 0.1em #39d;
-      }
-      a:link, a:visited {
-        color: #39d;
-        text-decoration: none;
-        box-shadow: inset 0 -3px 0 0 #39d;
-        transition: box-shadow 0.2s ease-in-out;
-      }
-      a:hover {
-        transition: none;
-        box-shadow: inset 0 0 0 0 #39d;
-      }
-    </style>
+    <link rel="stylesheet" href="/static/govuk-frontend-1.1.1.min.css" type="text/css" media="screen" title="no title" charset="utf-8">
   </head>
   <body>
-    <h1>
-      User research admin app
-    </h1>
-    {% block main %}{% endblock %}
+    <div class="govuk-width-container">
+      <main class="govuk-main-wrapper">
+        <div class="govuk-grid-row">
+          <div class="govuk-grid-column-two-thirds">
+            <h1 class="govuk-heading-xl">User research app</h1>
+            {% block main %}{% endblock %}
+          </div>
+        </div>
+      </main>
+    </div>
   </body>
 </html>
