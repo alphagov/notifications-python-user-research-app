@@ -2,16 +2,45 @@
 
 {% block main %}
 
-  <form method='post'>
-    <label for='email_address'>Email address</label>
-    <input type='text' name='email_address' id='email_address' value="{{ email_address or '' }}"/>
-    <input type='radio' name='document_key' id='doc1' value="file1"/>
-    <label for='doc1'>Document 1</label>
-    <input type='radio' name='document_key' id='doc2' value="file2"/>
-    <label for='doc2'>Document 2</label>
-    <input type='radio' name='document_key' id='doc3' value="file3"/>
-    <label for='doc3'>Document 3</label>
-    <button type='submit'>Send</button>
-  </form>
+
+<form method='post'>
+  <div class="govuk-form-group">
+    <label class="govuk-label" for="email_address">
+      Email address
+    </label>
+    <input class="govuk-input" type='text' name='email_address' id='email_address'>
+  </div>
+
+  <div class="govuk-form-group">
+    <fieldset class="govuk-fieldset">
+      <div class="govuk-radios">
+        <legend class="govuk-fieldset__legend">
+          <span class="govuk-fieldset__heading">
+            Choose a document to send
+          </span>
+        </legend>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="doc1" name="document_key" type="radio" value="report">
+          <label class="govuk-label govuk-radios__label" for="doc1">Report</label>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="doc2" name="document_key" type="radio" value="project-proposal">
+          <label class="govuk-label govuk-radios__label" for="doc2">Project proposal</label>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="doc3" name="document_key" type="radio" value="newsletter">
+          <label class="govuk-label govuk-radios__label" for="doc3">Newsletter</label>
+        </div>
+        <div class="govuk-radios__item">
+          <input class="govuk-radios__input" id="doc4" name="document_key" type="radio" value="research-paper">
+          <label class="govuk-label govuk-radios__label" for="doc4">Research paper</label>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+
+  <button type='submit' class="govuk-button">Send</button>
+
+</form>
 
 {% endblock %}
