@@ -1,5 +1,8 @@
+import os
 from flask import Flask, request, redirect, url_for, render_template
+from notifications_python_client.notifications import NotificationsAPIClient
 
+notifications_client = NotificationsAPIClient(os.environ['NOTIFY_KEY'])
 app = Flask(__name__)
 
 
@@ -21,6 +24,17 @@ def send():
 
     email_address = request.form.get('email_address')
     document_key = request.form.get('document_key')
+
+    with open('./files/' + document_key + '.pdf', 'rb') as f:
+        response = notifications_client.send_email_notification(
+            email_address=email_address,
+            template_id='801c99bc-a70f-45c8-82d5-8263b9bf05bb',
+            personalisation={
+                'document': f,
+            }
+        )
+        if 'status_code' in response:
+            raise response
 
     return redirect(url_for(
         '.sent',
